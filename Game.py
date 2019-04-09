@@ -58,7 +58,7 @@ class Game:
                 column = -1
                 while not ((0 <= row <= 9) or (0 <= column <= 9)):
                     row, column = input("Please choose a tile to attack"
-                                        "(row, column): ")
+                                        "(row, column): ").split()
                 self.players[(index + 1) % 2].board = self.attack(self,
                                                                   turn=index,
                                                                   row=row,
@@ -91,7 +91,7 @@ class Player(Game):
         self.board = np.zeros((ROWS, COLUMNS), dtype=np.int8)
 
     def set_board(self):
-        print("We will not set the board for: ", self.name)
+        print("We will now set the board for: ", self.name)
         choice = input("Type 'yes' if you would like to randomly populate"
                        " your board, or anything else to populate it yourself:"
                        " ")
